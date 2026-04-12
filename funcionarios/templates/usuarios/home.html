@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+  <h1>Bem-vindo à página pública!</h1>
+  <p>Esta é uma página para visitantes não logados</p>
+
+    <p>Login : <a href="{% url 'login' %}">Login</a></p>
+
+{% endblock %}

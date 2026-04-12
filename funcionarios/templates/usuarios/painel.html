@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+{{% if user.is_authenticated %}}
+  <h1>Bem-vindo ao Painel, {{ user.username }}!</h1>
+  <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Sair</button>
+  </form>
+
+  <p><a href="{% url 'home' %}">home</a></p>
+  <p><a href="{% url 'perfil' %}">Ver perfil</a></p>
+
+{% else %}
+  <p>Você não está logado. <a href="{% url 'home' %}">Entrar</a></p>
+{% endif %}
+
+{% endblock %}

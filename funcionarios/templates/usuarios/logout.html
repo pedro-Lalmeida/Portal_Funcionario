@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="container">
+    <h2>Você saiu do sistema!</h2>
+    <p>Obrigado por utilizar o Portal do Funcionário.</p>
+    <a href="{% url 'login' %}" class="btn">Entrar novamente</a>
+</div>
+{% endblock %}

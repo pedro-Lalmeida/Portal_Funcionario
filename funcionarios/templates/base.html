@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Autenticação Django</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home' %}">Home</a> |
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'painel' %}">Painel</a> |
+            <a href="{% url 'perfil' %}">Meu Perfil</a> |
+            
+            <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Sair</button>
+            </form>
+        {% else %}
+            <a href="{% url 'login' %}">Entrar</a>
+        {% endif %}
+    </nav>
+
+    <hr>
+
+    <div class="container">
+        {% block conteudo %}
+        {% endblock %}
+    </div>
+</body>
+</html>
